@@ -66,44 +66,6 @@ export default function Home() {
             <Image height={240} width={240} src="/brands/mustang-logo.png" alt="Brand Logo"/>
         </div>
     </div>
-
-    <footer className="flex flex-col gap-6 px-2 md:px-6 lg:px-12 bg-gray-600">
-        <div className="flex flex-col md:flex-row gap-4 md:gap-0 md:justify-between">
-            <ul className="flex gap-2">
-                <li>
-                    <a href="#"><span className="w-[36px] block h-[36px] bg-gray-200 rounded-full"></span></a>
-                </li>
-                <li>
-                    <a href="#"><span className="w-[36px] block h-[36px] bg-gray-200 rounded-full"></span></a>
-                </li>
-                <li>
-                    <a href="#"><span className="w-[36px] block h-[36px] bg-gray-200 rounded-full"></span></a>
-                </li>
-                <li>
-                    <a href="#"><span className="w-[36px] block h-[36px] bg-gray-200 rounded-full"></span></a>
-                </li>
-            </ul>
-            <ul className="flex flex-wrap gap-6 md:gap-8">
-                <li>
-                    <a href="#" className="text-gray-200 text-sm">About Us</a>
-                </li>
-                <li>
-                    <a href="#" className="text-gray-200 text-sm">Terms and Conditions</a>
-                </li>
-                <li>
-                    <a href="#" className="text-gray-200 text-sm">Privacy Policy</a>
-                </li>
-                <li>
-                    <a href="#" className="text-gray-200 text-sm">Bug Bounty</a>
-                </li>
-            </ul>
-            
-        </div>
-
-        <div>
-            <p className="text-sm text-gray-200 text-center">&copy;2024 CarTrip Limited. All Rights Reserved</p>
-        </div>
-    </footer>
     </>
   )
 }
