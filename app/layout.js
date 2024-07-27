@@ -1,8 +1,12 @@
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Footer from "@/Components/Footer";
+import Nav from "@/components/Nav"
 
-const inter = Inter({ subsets: ["latin"] });
+const Montserrat_thin_300 = Montserrat({
+  subsets: ["latin"],
+  weight: "300"
+});
 
 export const metadata = {
   title: "Car Trip | Car Rental Services",
@@ -12,10 +16,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={Montserrat_thin_300.className}>
+        <Nav/>
         {children}
         <Footer/>
-        </body>
+      </body>
     </html>
   );
 }
