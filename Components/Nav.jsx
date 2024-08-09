@@ -32,7 +32,7 @@ export default function Nav () {
 
             {
                 path.split("/").includes("dashboard")
-                 ? <DashboardNavBar cssClass="flex-col lg:flex gap-6 p-4"/>
+                 ? <DashboardNavBar cssClass="hidden lg:flex flex-col lg:flex-row gap-6 p-4"/>
                   : <GeneralNavBar cssClass="hidden lg:flex gap-8"/>
             }
 
@@ -52,13 +52,13 @@ export default function Nav () {
         {
         menu
         ?
-        <div className="min-h-[180px] bg-black">
+        <div className="min-h-[240px] bg-black">
             <div className="h-[6px] bg-gradient-to-r from-yellow-500 via-blue-500 to-red-500"></div>
 
             {
                 path.split("/").includes("dashboard")
-                 ? <DashboardNavBar cssClass="flex-col lg:flex gap-6 p-4"/>
-                  : <GeneralNavBar cssClass="hidden lg:flex gap-8"/>
+                ? <DashboardNavBar cssClass= "flex flex-col lg:flex-row gap-6 p-4"/>
+                : <GeneralNavBar cssClass="flex flex-col lg:flex-row gap-8 p-4"/>
             }
             
         </div>
