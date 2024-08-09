@@ -7,7 +7,7 @@ export default function Home() {
     <div className="h-screen bg-img-home ">
        <div className="h-full bg-black/50 flex justify-center items-center ">
             <blockquote className="lg:w-[620px] flex flex-col gap-8 px-2 md:px-6 lg:px-0">
-                <h1 className="text-6xl text-white text-center font-bold">Get the <span className="text-yellow-500">comfort</span> you deserve with our rentals whether it's for <span className="text-yellow-500">luxury</span> or on your <span className="text-yellow-500">temporal stay</span></h1>
+                <h1 className=" text-5xl md:text-6xl text-white text-center font-bold">Get the <span className="text-yellow-500">comfort</span> you deserve with our rentals whether it's for <span className="text-yellow-500">luxury</span> or on your <span className="text-yellow-500">temporal stay</span></h1>
                 <p className="text-center">
                     <a href="#" className="inline-block md:inline w-full md:w-auto px-6 py-4 rounded-xl bg-yellow-400 text-xl ">Rent Now</a>
                 </p>    
