@@ -1,7 +1,6 @@
 "use client"
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import {CiMenuBurger} from "react-icons/ci"
@@ -17,7 +16,6 @@ const montserrat_thin_100 = Montserrat({
 export default function Nav () {
     const [menu,setMenu] = useState(false);
     const path = usePathname();
-    console.log(path);
 
     return (
         <>
