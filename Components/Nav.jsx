@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import {CiMenuBurger} from "react-icons/ci"
