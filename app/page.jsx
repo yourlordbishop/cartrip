@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { inventory } from "@/lib/car-inventory";
-import InventoryCard from "@/Components/inventoryCards";
+import InventoryCard from "@/components/inventoryCards";
 export default function Home() {
   return (
     <>

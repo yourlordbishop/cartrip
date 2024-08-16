@@ -1,5 +1,5 @@
 import { inventory } from "@/lib/car-inventory"
-import RentalCar from "@/Components/RentalCar"
+import RentalCar from "@/components/RentalCar"
 
 export default function Cars () {
     return (

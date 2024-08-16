@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { VscActivateBreakpoints } from "react-icons/vsc"
 import { FaHistory,FaUserCircle,FaRegCreditCard } from "react-icons/fa"
-import { BookingCard } from "@/Components/BookingCard"
+import { BookingCard } from "@/components/BookingCard"
 
 export default function Dashboard () {
     return (
