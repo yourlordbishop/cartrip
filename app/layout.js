@@ -1,7 +1,7 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
-import Nav from "@/components/Nav"
+import Nav from "@/components/Nav";
 
 const Montserrat_thin_300 = Montserrat({
   subsets: ["latin"],

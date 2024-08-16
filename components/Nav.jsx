@@ -7,7 +7,7 @@ import {IoCloseSharp} from "react-icons/io5"
 import { GeneralNavBar } from "./nav_components/GeneralNavBar";
 import { DashboardNavBar } from "./nav_components/DashboardNavBar";
 
-export function Nav () {
+export default function Nav () {
     const [menu,setMenu] = useState(false);
     const path = usePathname();
 
