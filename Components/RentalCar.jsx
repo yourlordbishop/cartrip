@@ -1,16 +1,53 @@
 "use client";
+//import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React from "react";
 import Image from "next/image";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
+import { TextField,CircularProgress, duration } from "@mui/material";
+import { useFormik } from "formik";
+import { rules } from "@/helpers/booking_form_validation";
+import { db } from "@/lib/firebase.config";
+import { addDoc,collection } from "firebase/firestore";
 
-export default function RentalCar ({carClass,carType,seatCap,hRate,carImg}) {
+export default function RentalCar ({carId, carClass,carType,seatCap,hRate,carImg}) {
     const [open, setOpen] = React.useState(false);
+    const [progress, setProgress] = React.useState(false);
+
+    const router = useRouter();
 
     const handleClickOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const { handleSubmit,handleChange,touched,errors,values } = useFormik({
+        initialValues: {duration:1,phone:"",address:"",comments:""},
+        onSubmit: async () => {
+           setProgress(true)
+
+           await addDoc(collection(db,"bookings"),{
+                carId:carId,
+                duration:values.duration,
+                phone:values.phone,
+                address:values.address,
+                comments:values.comments,
+                email:null,
+                uid:null,
+                timecreated:new Date().getTime()
+           })
+           .then(() => {
+                setProgress(false);
+                router.push("/pay");
+           })
+           .catch((e) => {
+                setProgress(false);
+                throw new Error(e);
+           })
+        },
+        validationSchema:rules
+    })
 
     return (
         <>
@@ -54,6 +91,75 @@ export default function RentalCar ({carClass,carType,seatCap,hRate,carImg}) {
                     <li className="text-lg text-center border-r border-gray-300 pr-2">{carType}</li>
                     <li className="text-lg text-center">N{hRate}</li>
                 </ul>
+
+                <form onSubmit={handleSubmit} className="mt-6">
+                    <div className="mb-4">
+                        <TextField
+                        className="w-full"
+                        variant="outlined"
+                        label="Hours"
+                        type="number"
+                        id="duration"
+                        value={values.duration}
+                        onChange={handleChange}/>
+
+                        {errors && touched ?
+                       <span className="text-xs text-red-500 mt-1">{errors.duration}</span> : 
+                       null}
+                    </div>
+                    <div className="mb-4">
+                        <TextField
+                        className="w-full"
+                        variant="outlined"
+                        label="Phone"
+                        type="number"
+                        id="phone"
+                        value={values.phone}
+                        onChange={handleChange}/>
+
+                        {errors && touched ?
+                       <span className="text-xs text-red-500 mt-1">{errors.phone}</span> : 
+                       null}
+                    </div>
+                    <div className="mb-4">
+                        <TextField
+                        multiline={true}
+                        rows={2}
+                        label="Address"
+                        className="w-full"
+                        variant="outlined"
+                        type="text"
+                        id="address"
+                        value={values.address}
+                        onChange={handleChange}/>
+
+                        {errors && touched ?
+                       <span className="text-xs text-red-500 mt-1">{errors.address}</span> : 
+                       null}
+                    </div>
+                    <div className="mb-4">
+                        <TextField
+                        multiline={true}
+                        rows={2}
+                        label="Comments"
+                        className="w-full"
+                        variant="outlined"
+                        type="text"
+                        id="comments"
+                        value={values.text}
+                        onChange={handleChange}/>
+
+                        {errors && touched ?
+                       <span className="text-xs text-red-500 mt-1">{errors.text}</span> : 
+                       null}
+                    </div>
+
+                    <Button 
+                    type="submit" 
+                    variant="contained" 
+                    color="success" 
+                    size="large">{progress ? <CircularProgress/>: <span> Continue </span>}</Button>
+                </form>
             </DialogContent>
 
             <DialogActions>
@@ -63,3 +169,7 @@ export default function RentalCar ({carClass,carType,seatCap,hRate,carImg}) {
     </>
     )
 }
+
+//duration of rental
+//comments
+//date and time of booking
