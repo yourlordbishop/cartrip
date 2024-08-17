@@ -6,6 +6,7 @@ import {CiMenuBurger} from "react-icons/ci"
 import {IoCloseSharp} from "react-icons/io5"
 import { GeneralNavBar } from "./nav_components/GeneralNavBar";
 import { DashboardNavBar } from "./nav_components/DashboardNavBar";
+import Link from "next/link";
 
 export default function Nav () {
     const [menu,setMenu] = useState(false);
@@ -14,13 +15,13 @@ export default function Nav () {
     return (
         <>
         <nav className="h-[60px] flex justify-between items-center px-4 bg-black">
-            <div>
+            <Link href="/">
                 <Image
                 width={54}
                 height={54}
                 src="/brands/mustang-logo.png"
                 alt="brand logo"/>
-            </div>
+            </Link>
 
             {
                 path.split("/").includes("dashboard")
