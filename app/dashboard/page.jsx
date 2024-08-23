@@ -5,7 +5,7 @@ import { VscActivateBreakpoints } from "react-icons/vsc"
 import { FaHistory,FaUserCircle,FaRegCreditCard } from "react-icons/fa"
 import { BookingCard } from "@/components/BookingCard"
 import { db } from "@/lib/firebase.config"
-import { getDocs,collection } from "firebase/firestore"
+import { getDocs,collection } from "firebase/firestore";
 
 export default function Dashboard () {
     const [bookings,setBookings] = useState([]);
@@ -34,7 +34,7 @@ export default function Dashboard () {
         <section className="grid lg:grid-cols-2 gap-8 py-12 px-2 md:px-6 lg:px-12">
             <article className="grid grid-cols-2 gap-4">
                 <Link
-                 href="/dashboard/cars"
+                 href="/cars"
                 className=" h-[200px] flex flex-col justify-center items-center bg-red-600 rounded-md p-4">
                  <VscActivateBreakpoints className="text-white text-2xl"/>
                  <span className="text-xl text-white">Cars</span>

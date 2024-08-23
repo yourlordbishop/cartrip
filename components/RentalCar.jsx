@@ -12,10 +12,12 @@ import { useFormik } from "formik";
 import { rules } from "@/helpers/booking_form_validation";
 import { db } from "@/lib/firebase.config";
 import { addDoc,collection } from "firebase/firestore";
+import { useSession } from "next-auth/react";
 
 export default function RentalCar ({carId, carClass,carType,seatCap,hRate,carImg}) {
     const [open, setOpen] = React.useState(false);
     const [progress, setProgress] = React.useState(false);
+    const {data:session} = useSession();    
 
     const router = useRouter();
 
@@ -33,7 +35,7 @@ export default function RentalCar ({carId, carClass,carType,seatCap,hRate,carImg
                 phone:values.phone,
                 address:values.address,
                 comments:values.comments,
-                email:null,
+                email:session.user.email,
                 uid:null,
                 timecreated:new Date().getTime()
            })
