@@ -1,6 +1,7 @@
 "use client"
 import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
+import { BsTwitterX } from "react-icons/bs";
 
 export default function Auth() {
 
@@ -19,6 +20,22 @@ export default function Auth() {
             className="w-full h-[56px] flex justify-center items-center gap-6 border border-gray-400 rounded-md">
               <FcGoogle className="text-3xl"/>
               <span className="text-gray-700">Google</span> 
+            </button>
+          </form>
+      </div>
+      <div className="h-full w-full md:w-[320px] flex flex-col gap-8 border border-gray-300 rounded-md p-3 md:p-5">
+          <p className="text-gray-700">Whether you are a new or an existing user, sign in to continue to your account</p>
+
+          <form
+          action={async () => {
+            await signIn("twitter")
+          }}
+          className="flex flex-col gap-3">
+            <button
+            type="submit"
+            className="w-full h-[56px] flex justify-center items-center gap-6 border border-gray-400 rounded-md">
+              <BsTwitterX className="text-3xl"/>
+              <span className="text-gray-700">twitter</span> 
             </button>
           </form>
       </div>
