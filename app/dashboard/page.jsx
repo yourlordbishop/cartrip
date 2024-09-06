@@ -27,9 +27,9 @@ export default function Dashboard () {
                         data:doc.data()
                     })
                 })
-            });
 
-            setBookings(reDocs);
+                setBookings(reDocs);
+            });
         }
 
         fetchBookings();
@@ -57,10 +57,10 @@ export default function Dashboard () {
                     <span className="text-xl text-white">Profile</span>
                 </Link>
                 <Link 
-                href="/dashboard/pay" 
+                href="#" 
                 className="h-[200px] flex flex-col justify-center items-center bg-red-600 rounded-md p-4">
                     <FaRegCreditCard className="text-white text-2xl"/>
-                    <span className="text-xl text-white">Pay</span>
+                    <span className="text-xl text-white">Feauture</span>
                 </Link>
             </article>
 
